@@ -182,20 +182,39 @@ class Main extends eui.UILayer {
 
 
         // 按钮
-        const button = new eui.Button();
-        button.width = 200;
-        button.height = 200;
-        button.label = "Confirm";
-        button.verticalCenter = 0;
-        button.horizontalCenter = 0;
-        this.myGroup.addChild(button);
-        // button.enabled = false; // 是否禁用
-        // 获取按钮的文本对象
-        // 因为labelDisplay是个接口，需要使用eui.label转换
-        console.log('----', <eui.Label>button.labelDisplay);
+        // const button = new eui.Button();
+        // button.width = 200;
+        // button.height = 200;
+        // button.label = "Confirm";
+        // button.verticalCenter = 0;
+        // button.horizontalCenter = 0;
+        // this.myGroup.addChild(button);
+        // // button.enabled = false; // 是否禁用
+        // // 获取按钮的文本对象
+        // // 因为labelDisplay是个接口，需要使用eui.label转换
+        // console.log('----', <eui.Label>button.labelDisplay);
 
-        (<eui.Label>button.labelDisplay).size = 50
-        button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnTouchHandler, this)
+        // (<eui.Label>button.labelDisplay).size = 50
+        // button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnTouchHandler, this)
+
+
+        // 复选框
+        const cbx = new eui.CheckBox();
+        cbx.label = "Select 1";
+        this.addChild(cbx);
+        cbx.addEventListener(eui.UIEvent.CHANGE, (event: eui.UIEvent) => egret.log(event.target.selected), this);
+
+        const cbx2 = new eui.CheckBox();
+        cbx2.label = "Select 2";
+        cbx2.y = 30;
+        this.addChild(cbx2);
+        cbx2.addEventListener(eui.UIEvent.CHANGE, (event: eui.UIEvent) => egret.log(event.target.selected), this);
+
+        const cbx3 = new eui.CheckBox();
+        cbx3.label = "Select 3";
+        cbx3.y = 60;
+        cbx3.enabled = false; // 禁用
+        this.addChild(cbx3);
 
     }
     /**

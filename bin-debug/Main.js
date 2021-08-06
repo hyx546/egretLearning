@@ -235,19 +235,34 @@ var Main = (function (_super) {
         // tLayout.requestedColumnCount = 2;// 设置两列显示
         // this.myGroup.layout = tLayout; // 网格布局
         // 按钮
-        var button = new eui.Button();
-        button.width = 200;
-        button.height = 200;
-        button.label = "Confirm";
-        button.verticalCenter = 0;
-        button.horizontalCenter = 0;
-        this.myGroup.addChild(button);
-        // button.enabled = false; // 是否禁用
-        // 获取按钮的文本对象
-        // 因为labelDisplay是个接口，需要使用eui.label转换
-        console.log('----', button.labelDisplay);
-        button.labelDisplay.size = 50;
-        button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnTouchHandler, this);
+        // const button = new eui.Button();
+        // button.width = 200;
+        // button.height = 200;
+        // button.label = "Confirm";
+        // button.verticalCenter = 0;
+        // button.horizontalCenter = 0;
+        // this.myGroup.addChild(button);
+        // // button.enabled = false; // 是否禁用
+        // // 获取按钮的文本对象
+        // // 因为labelDisplay是个接口，需要使用eui.label转换
+        // console.log('----', <eui.Label>button.labelDisplay);
+        // (<eui.Label>button.labelDisplay).size = 50
+        // button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnTouchHandler, this)
+        // 复选框
+        var cbx = new eui.CheckBox();
+        cbx.label = "Select 1";
+        this.addChild(cbx);
+        cbx.addEventListener(eui.UIEvent.CHANGE, function (event) { return egret.log(event.target.selected); }, this);
+        var cbx2 = new eui.CheckBox();
+        cbx2.label = "Select 2";
+        cbx2.y = 30;
+        this.addChild(cbx2);
+        cbx2.addEventListener(eui.UIEvent.CHANGE, function (event) { return egret.log(event.target.selected); }, this);
+        var cbx3 = new eui.CheckBox();
+        cbx3.label = "Select 3";
+        cbx3.y = 60;
+        cbx3.enabled = false; // 禁用
+        this.addChild(cbx3);
     };
     /**
      * 描述文件加载成功，开始播放动画
