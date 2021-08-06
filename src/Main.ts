@@ -153,13 +153,17 @@ class Main extends eui.UILayer {
         this.myGroup.addChild(btn2);
         this.myGroup.addChild(btn3);
 
-        const hLayout:eui.HorizontalLayout = new eui.HorizontalLayout();
-        hLayout.gap = 10; // 设置子项之间的间距
-        hLayout.paddingTop = 30;
-        hLayout.horizontalAlign = egret.HorizontalAlign.CENTER; // 设置水平对齐方式
-        this.myGroup.layout = hLayout; // 水平布局
+        // const hLayout:eui.HorizontalLayout = new eui.HorizontalLayout();
+        // hLayout.gap = 10; // 设置子项之间的间距
+        // hLayout.paddingTop = 30;
+        // hLayout.horizontalAlign = egret.HorizontalAlign.CENTER; // 设置水平对齐方式
+        // this.myGroup.layout = hLayout; // 水平布局
 
-
+        const vLayout:eui.VerticalLayout = new eui.VerticalLayout();
+        vLayout.gap = 10;
+        vLayout.paddingTop = 30;
+        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        this.myGroup.layout = vLayout;
 
     }
     /**
