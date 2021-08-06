@@ -188,10 +188,18 @@ var Main = (function (_super) {
         //     this.myGroup.addChild(btn)
         // }
         // 居中设置
+        // const btn:eui.Button = new eui.Button();
+        // btn.label = "This is an egret button";
+        // btn.horizontalCenter = 0;
+        // btn.verticalCenter = 0;
+        // this.myGroup.addChild(btn);
+        // 边距设定
         var btn = new eui.Button();
         btn.label = "This is an egret button";
-        btn.horizontalCenter = 0;
-        btn.verticalCenter = 0;
+        btn.top = 20;
+        btn.bottom = 20;
+        btn.left = 20;
+        btn.right = 20;
         this.myGroup.addChild(btn);
     };
     /**
