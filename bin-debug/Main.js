@@ -249,20 +249,37 @@ var Main = (function (_super) {
         // (<eui.Label>button.labelDisplay).size = 50
         // button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnTouchHandler, this)
         // 复选框
-        var cbx = new eui.CheckBox();
-        cbx.label = "Select 1";
-        this.addChild(cbx);
-        cbx.addEventListener(eui.UIEvent.CHANGE, function (event) { return egret.log(event.target.selected); }, this);
-        var cbx2 = new eui.CheckBox();
-        cbx2.label = "Select 2";
-        cbx2.y = 30;
-        this.addChild(cbx2);
-        cbx2.addEventListener(eui.UIEvent.CHANGE, function (event) { return egret.log(event.target.selected); }, this);
-        var cbx3 = new eui.CheckBox();
-        cbx3.label = "Select 3";
-        cbx3.y = 60;
-        cbx3.enabled = false; // 禁用
-        this.addChild(cbx3);
+        // const cbx = new eui.CheckBox();
+        // cbx.label = "Select 1";
+        // this.addChild(cbx);
+        // cbx.addEventListener(eui.UIEvent.CHANGE, (event: eui.UIEvent) => egret.log(event.target.selected), this);
+        // const cbx2 = new eui.CheckBox();
+        // cbx2.label = "Select 2";
+        // cbx2.y = 30;
+        // this.addChild(cbx2);
+        // cbx2.addEventListener(eui.UIEvent.CHANGE, (event: eui.UIEvent) => egret.log(event.target.selected), this);
+        // const cbx3 = new eui.CheckBox();
+        // cbx3.label = "Select 3";
+        // cbx3.y = 60;
+        // cbx3.enabled = false; // 禁用
+        // this.addChild(cbx3);
+        // 单选框 创建一个RadioButtonGroup的实例，并设置到每个单选按钮的group属性上
+        var radioGroup = new eui.RadioButtonGroup();
+        radioGroup.addEventListener(eui.UIEvent.CHANGE, function (event) {
+            console.log(event.target.selectedValue);
+        }, this);
+        var rdbtn = new eui.RadioButton();
+        rdbtn.label = 'select 1';
+        rdbtn.value = 1;
+        rdbtn.group = radioGroup;
+        this.addChild(rdbtn);
+        var rdbtn2 = new eui.RadioButton();
+        rdbtn2.label = 'select 1';
+        rdbtn2.value = 2;
+        rdbtn2.group = radioGroup;
+        rdbtn2.y = 30;
+        rdbtn2.selected = true;
+        this.addChild(rdbtn2);
     };
     /**
      * 描述文件加载成功，开始播放动画
