@@ -201,15 +201,15 @@ var Main = (function (_super) {
         // btn.left = 20;
         // btn.right = 20;
         // this.myGroup.addChild(btn);
-        var btn1 = new eui.Button();
-        btn1.label = "button A";
-        var btn2 = new eui.Button();
-        btn2.label = "button B";
-        var btn3 = new eui.Button();
-        btn3.label = "button C";
-        this.myGroup.addChild(btn1);
-        this.myGroup.addChild(btn2);
-        this.myGroup.addChild(btn3);
+        // const btn1: eui.Button = new eui.Button();
+        // btn1.label = "button A";
+        // const btn2: eui.Button = new eui.Button();
+        // btn2.label = "button B";
+        // const btn3: eui.Button = new eui.Button();
+        // btn3.label = "button C";
+        // this.myGroup.addChild(btn1);
+        // this.myGroup.addChild(btn2);
+        // this.myGroup.addChild(btn3);
         // 水平布局
         // const hLayout:eui.HorizontalLayout = new eui.HorizontalLayout();
         // hLayout.gap = 10; // 设置子项之间的间距
@@ -223,17 +223,31 @@ var Main = (function (_super) {
         // vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
         // this.myGroup.layout = vLayout;
         // 网格布局
-        var tLayout = new eui.TileLayout();
-        tLayout.horizontalGap = 10; // 子项之间的水平距离
-        tLayout.verticalGap = 10; // 子项之间的垂直距离
-        tLayout.columnAlign = eui.ColumnAlign.JUSTIFY_USING_WIDTH;
-        tLayout.rowAlign = eui.RowAlign.JUSTIFY_USING_HEIGHT;
-        tLayout.paddingTop = 30;
-        tLayout.paddingBottom = 10;
-        tLayout.paddingLeft = 30;
-        tLayout.paddingRight = 30;
-        tLayout.requestedColumnCount = 2; // 设置两列显示
-        this.myGroup.layout = tLayout; // 网格布局
+        // const tLayout: eui.TileLayout = new eui.TileLayout();
+        // tLayout.horizontalGap = 10; // 子项之间的水平距离
+        // tLayout.verticalGap = 10;// 子项之间的垂直距离
+        // tLayout.columnAlign = eui.ColumnAlign.JUSTIFY_USING_WIDTH;
+        // tLayout.rowAlign = eui.RowAlign.JUSTIFY_USING_HEIGHT;
+        // tLayout.paddingTop = 30;
+        // tLayout.paddingBottom = 10;
+        // tLayout.paddingLeft = 30;
+        // tLayout.paddingRight = 30;
+        // tLayout.requestedColumnCount = 2;// 设置两列显示
+        // this.myGroup.layout = tLayout; // 网格布局
+        // 按钮
+        var button = new eui.Button();
+        button.width = 200;
+        button.height = 200;
+        button.label = "Confirm";
+        button.verticalCenter = 0;
+        button.horizontalCenter = 0;
+        this.myGroup.addChild(button);
+        // button.enabled = false; // 是否禁用
+        // 获取按钮的文本对象
+        // 因为labelDisplay是个接口，需要使用eui.label转换
+        console.log('----', button.labelDisplay);
+        button.labelDisplay.size = 50;
+        button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btnTouchHandler, this);
     };
     /**
      * 描述文件加载成功，开始播放动画
@@ -261,6 +275,9 @@ var Main = (function (_super) {
             tw.call(change, _this);
         };
         change();
+    };
+    Main.prototype.btnTouchHandler = function (event) {
+        console.log('------button touched');
     };
     return Main;
 }(eui.UILayer));
