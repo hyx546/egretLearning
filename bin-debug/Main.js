@@ -168,7 +168,7 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         this.myGroup = new eui.Group();
         this.addChild(this.myGroup);
-        this.myGroup.width = 400;
+        this.myGroup.width = 500;
         this.myGroup.height = 300;
         this.myGroup.layout = new eui.BasicLayout();
         // 绘制矩形用于显示 myGroup的轮廓
@@ -176,7 +176,7 @@ var Main = (function (_super) {
         outline.graphics.lineStyle(3, 0x00ff00);
         outline.graphics.lineStyle(3, 0x00ff00);
         outline.graphics.beginFill(0x000000, 0);
-        outline.graphics.drawRect(0, 0, 400, 300);
+        outline.graphics.drawRect(0, 0, 500, 300);
         outline.graphics.endFill();
         this.myGroup.addChild(outline);
         // 绝对定位
@@ -194,13 +194,27 @@ var Main = (function (_super) {
         // btn.verticalCenter = 0;
         // this.myGroup.addChild(btn);
         // 边距设定
-        var btn = new eui.Button();
-        btn.label = "This is an egret button";
-        btn.top = 20;
-        btn.bottom = 20;
-        btn.left = 20;
-        btn.right = 20;
-        this.myGroup.addChild(btn);
+        // const btn: eui.Button = new eui.Button();
+        // btn.label = "This is an egret button";
+        // btn.top = 20;
+        // btn.bottom = 20;
+        // btn.left = 20;
+        // btn.right = 20;
+        // this.myGroup.addChild(btn);
+        var btn1 = new eui.Button();
+        btn1.label = "button A";
+        var btn2 = new eui.Button();
+        btn2.label = "button B";
+        var btn3 = new eui.Button();
+        btn3.label = "button C";
+        this.myGroup.addChild(btn1);
+        this.myGroup.addChild(btn2);
+        this.myGroup.addChild(btn3);
+        var hLayout = new eui.HorizontalLayout();
+        hLayout.gap = 10; // 设置子项之间的间距
+        hLayout.paddingTop = 30;
+        hLayout.horizontalAlign = egret.HorizontalAlign.CENTER; // 设置水平对齐方式
+        this.myGroup.layout = hLayout; // 水平布局
     };
     /**
      * 描述文件加载成功，开始播放动画

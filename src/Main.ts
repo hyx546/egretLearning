@@ -104,7 +104,8 @@ class Main extends eui.UILayer {
 
         this.myGroup = new eui.Group();
         this.addChild(this.myGroup);
-        this.myGroup.width = 400;
+
+        this.myGroup.width = 500;
         this.myGroup.height = 300;
         this.myGroup.layout = new eui.BasicLayout();
 
@@ -113,7 +114,7 @@ class Main extends eui.UILayer {
         outline.graphics.lineStyle(3, 0x00ff00);
         outline.graphics.lineStyle(3, 0x00ff00);
         outline.graphics.beginFill(0x000000, 0);
-        outline.graphics.drawRect(0, 0, 400, 300);
+        outline.graphics.drawRect(0, 0, 500, 300);
         outline.graphics.endFill();
         this.myGroup.addChild(outline);
 
@@ -134,13 +135,29 @@ class Main extends eui.UILayer {
         // this.myGroup.addChild(btn);
 
         // 边距设定
-        const btn: eui.Button = new eui.Button();
-        btn.label = "This is an egret button";
-        btn.top = 20;
-        btn.bottom = 20;
-        btn.left = 20;
-        btn.right = 20;
-        this.myGroup.addChild(btn);
+        // const btn: eui.Button = new eui.Button();
+        // btn.label = "This is an egret button";
+        // btn.top = 20;
+        // btn.bottom = 20;
+        // btn.left = 20;
+        // btn.right = 20;
+        // this.myGroup.addChild(btn);
+
+        const btn1:eui.Button = new eui.Button();
+        btn1.label = "button A";
+        const btn2:eui.Button = new eui.Button();
+        btn2.label = "button B";
+        const btn3:eui.Button = new eui.Button();
+        btn3.label = "button C";
+        this.myGroup.addChild(btn1);
+        this.myGroup.addChild(btn2);
+        this.myGroup.addChild(btn3);
+
+        const hLayout:eui.HorizontalLayout = new eui.HorizontalLayout();
+        hLayout.gap = 10; // 设置子项之间的间距
+        hLayout.paddingTop = 30;
+        hLayout.horizontalAlign = egret.HorizontalAlign.CENTER; // 设置水平对齐方式
+        this.myGroup.layout = hLayout; // 水平布局
 
 
 
