@@ -210,16 +210,30 @@ var Main = (function (_super) {
         this.myGroup.addChild(btn1);
         this.myGroup.addChild(btn2);
         this.myGroup.addChild(btn3);
+        // 水平布局
         // const hLayout:eui.HorizontalLayout = new eui.HorizontalLayout();
         // hLayout.gap = 10; // 设置子项之间的间距
         // hLayout.paddingTop = 30;
         // hLayout.horizontalAlign = egret.HorizontalAlign.CENTER; // 设置水平对齐方式
         // this.myGroup.layout = hLayout; // 水平布局
-        var vLayout = new eui.VerticalLayout();
-        vLayout.gap = 10;
-        vLayout.paddingTop = 30;
-        vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
-        this.myGroup.layout = vLayout;
+        // 垂直布局
+        // const vLayout:eui.VerticalLayout = new eui.VerticalLayout();
+        // vLayout.gap = 10;
+        // vLayout.paddingTop = 30;
+        // vLayout.horizontalAlign = egret.HorizontalAlign.CENTER;
+        // this.myGroup.layout = vLayout;
+        // 网格布局
+        var tLayout = new eui.TileLayout();
+        tLayout.horizontalGap = 10; // 子项之间的水平距离
+        tLayout.verticalGap = 10; // 子项之间的垂直距离
+        tLayout.columnAlign = eui.ColumnAlign.JUSTIFY_USING_WIDTH;
+        tLayout.rowAlign = eui.RowAlign.JUSTIFY_USING_HEIGHT;
+        tLayout.paddingTop = 30;
+        tLayout.paddingBottom = 10;
+        tLayout.paddingLeft = 30;
+        tLayout.paddingRight = 30;
+        tLayout.requestedColumnCount = 2; // 设置两列显示
+        this.myGroup.layout = tLayout; // 网格布局
     };
     /**
      * 描述文件加载成功，开始播放动画
