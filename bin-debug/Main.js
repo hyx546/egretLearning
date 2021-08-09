@@ -264,22 +264,29 @@ var Main = (function (_super) {
         // cbx3.enabled = false; // 禁用
         // this.addChild(cbx3);
         // 单选框 创建一个RadioButtonGroup的实例，并设置到每个单选按钮的group属性上
-        var radioGroup = new eui.RadioButtonGroup();
-        radioGroup.addEventListener(eui.UIEvent.CHANGE, function (event) {
-            console.log(event.target.selectedValue);
+        // const radioGroup: eui.RadioButtonGroup = new eui.RadioButtonGroup();
+        // radioGroup.addEventListener(eui.UIEvent.CHANGE, (event: eui.UIEvent) => {
+        //     console.log(event.target.selectedValue);
+        // }, this)
+        // const rdbtn: eui.RadioButton = new eui.RadioButton();
+        // rdbtn.label = 'select 1';
+        // rdbtn.value = 1;
+        // rdbtn.group = radioGroup;
+        // this.addChild(rdbtn);
+        // const rdbtn2: eui.RadioButton = new eui.RadioButton();
+        // rdbtn2.label = 'select 1';
+        // rdbtn2.value = 2;
+        // rdbtn2.group = radioGroup;
+        // rdbtn2.y = 30;
+        // rdbtn2.selected = true;
+        // this.addChild(rdbtn2);
+        //  状态切换按钮
+        var btn = new eui.ToggleSwitch();
+        btn.label = "This is a ToggleSwitch";
+        this.addChild(btn);
+        btn.addEventListener(eui.UIEvent.CHANGE, function (ev) {
+            console.log(ev.target.selected);
         }, this);
-        var rdbtn = new eui.RadioButton();
-        rdbtn.label = 'select 1';
-        rdbtn.value = 1;
-        rdbtn.group = radioGroup;
-        this.addChild(rdbtn);
-        var rdbtn2 = new eui.RadioButton();
-        rdbtn2.label = 'select 1';
-        rdbtn2.value = 2;
-        rdbtn2.group = radioGroup;
-        rdbtn2.y = 30;
-        rdbtn2.selected = true;
-        this.addChild(rdbtn2);
     };
     /**
      * 描述文件加载成功，开始播放动画
