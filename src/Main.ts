@@ -258,6 +258,22 @@ class Main extends eui.UILayer {
         // myScroller.viewport = group;
         // this.addChild(myScroller);
 
+        // 数据容器
+        const sourceArr: any[] = [];
+        for (let i = 1; i < 5; i++) {
+            sourceArr.push({ label: "item" + i })
+        }
+        // 用ArrayCollection包装
+        const myCollection: eui.ArrayCollection = new eui.ArrayCollection(sourceArr);
+
+        const dataGroup: eui.DataGroup = new eui.DataGroup();
+        dataGroup.dataProvider = myCollection;
+        dataGroup.percentWidth = 100;
+        dataGroup.percentHeight = 100;
+        this.addChild(dataGroup);
+
+        dataGroup.itemRenderer = LabelRenderer;
+
     }
     /**
      * 描述文件加载成功，开始播放动画
