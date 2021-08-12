@@ -259,20 +259,35 @@ class Main extends eui.UILayer {
         // this.addChild(myScroller);
 
         // 数据容器
-        const sourceArr: any[] = [];
-        for (let i = 1; i < 5; i++) {
-            sourceArr.push({ label: "item" + i })
-        }
-        // 用ArrayCollection包装
+        // const sourceArr: any[] = [];
+        // for (let i = 1; i < 5; i++) {
+        //     sourceArr.push({ label: "item" + i })
+        // }
+        // // 用ArrayCollection包装
+        // const myCollection: eui.ArrayCollection = new eui.ArrayCollection(sourceArr);
+
+        // const dataGroup: eui.DataGroup = new eui.DataGroup();
+        // dataGroup.dataProvider = myCollection;
+        // dataGroup.percentWidth = 100;
+        // dataGroup.percentHeight = 100;
+        // this.addChild(dataGroup);
+
+        // dataGroup.itemRenderer = LabelRenderer;
+
+        //先创建一个数组
+        const sourceArr: any[] = [{ name: "one", value: 1 }, { name: "two", value: 2 }];
+        //用 ArrayCollection 包装
         const myCollection: eui.ArrayCollection = new eui.ArrayCollection(sourceArr);
+        myCollection.addEventListener(eui.CollectionEvent.COLLECTION_CHANGE, (ev) => {
+            console.log('-----数据已改变', ev.kind + "," + ev.target.length);
+        }, this);
 
-        const dataGroup: eui.DataGroup = new eui.DataGroup();
-        dataGroup.dataProvider = myCollection;
-        dataGroup.percentWidth = 100;
-        dataGroup.percentHeight = 100;
-        this.addChild(dataGroup);
+        const itemData: Object = { name: "three", value: 3 };
+        myCollection.addItem(itemData);//相当于push
+        myCollection.addItemAt({ name: "han", value: 0 }, 0)
 
-        dataGroup.itemRenderer = LabelRenderer;
+        console.log('-----',myCollection.getItemAt(0));
+        
 
     }
     /**
