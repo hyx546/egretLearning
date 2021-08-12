@@ -166,19 +166,19 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
-        this.myGroup = new eui.Group();
-        this.addChild(this.myGroup);
-        this.myGroup.width = 500;
-        this.myGroup.height = 300;
-        this.myGroup.layout = new eui.BasicLayout();
-        // 绘制矩形用于显示 myGroup的轮廓
-        var outline = new egret.Shape;
-        outline.graphics.lineStyle(3, 0x00ff00);
-        outline.graphics.lineStyle(3, 0x00ff00);
-        outline.graphics.beginFill(0x000000, 0);
-        outline.graphics.drawRect(0, 0, 500, 300);
-        outline.graphics.endFill();
-        this.myGroup.addChild(outline);
+        // this.myGroup = new eui.Group();
+        // this.addChild(this.myGroup);
+        // this.myGroup.width = 500;
+        // this.myGroup.height = 300;
+        // this.myGroup.layout = new eui.BasicLayout();
+        // // 绘制矩形用于显示 myGroup的轮廓
+        // const outline: egret.Shape = new egret.Shape;
+        // outline.graphics.lineStyle(3, 0x00ff00);
+        // outline.graphics.lineStyle(3, 0x00ff00);
+        // outline.graphics.beginFill(0x000000, 0);
+        // outline.graphics.drawRect(0, 0, 500, 300);
+        // outline.graphics.endFill();
+        // this.myGroup.addChild(outline);
         // 绝对定位
         // for (let i: number = 0; i < 4; i++) {
         //     const btn: eui.Button = new eui.Button();
@@ -281,12 +281,24 @@ var Main = (function (_super) {
         // rdbtn2.selected = true;
         // this.addChild(rdbtn2);
         //  状态切换按钮
-        var btn = new eui.ToggleSwitch();
-        btn.label = "This is a ToggleSwitch";
-        this.addChild(btn);
-        btn.addEventListener(eui.UIEvent.CHANGE, function (ev) {
-            console.log(ev.target.selected);
-        }, this);
+        // const btn:eui.ToggleSwitch = new eui.ToggleSwitch();
+        // btn.label="This is a ToggleSwitch";
+        // this.addChild(btn);
+        // btn.addEventListener(eui.UIEvent.CHANGE,(ev:eui.UIEvent) => {
+        //     console.log(ev.target.selected);
+        // },this)
+        // 创建一个容器，里面包含一张图片
+        // const group = new eui.Group();
+        // const img = new eui.Image("resource/bg.jpg");
+        // group.addChild(img);
+        // // 创建一个scroller
+        // const myScroller = new eui.Scroller();
+        // // 位置和尺寸的设置是在Scroller上面，而不是容器上面
+        // myScroller.width = 200;
+        // myScroller.height = 200;
+        // // 设置viewport
+        // myScroller.viewport = group;
+        // this.addChild(myScroller);
     };
     /**
      * 描述文件加载成功，开始播放动画
